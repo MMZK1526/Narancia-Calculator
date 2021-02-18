@@ -1,5 +1,4 @@
 import functools
-import operator
 
 
 def narancia_calculator(n1: int, n2: int) -> int:
@@ -12,7 +11,7 @@ def narancia_calculator(n1: int, n2: int) -> int:
     # 先竖着乘
     part1 = (n1 % 10) * (n2 % 10)
     # 再横着乘
-    part2 = functools.reduce(operator.mul, map(lambda x: int(x), str(n2)))
+    part2 = functools.reduce(narancia_calculator, map(lambda x: int(x), str(n2)))
     # 错位相加
     res = part1 + 10 * part2
     # 如果末尾有零，福葛好像教过零等于没有，那就划掉吧～
